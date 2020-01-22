@@ -30,6 +30,18 @@ int recursiveFactorial(int n) {
 }
 
 /*
+ * Tail Recursive Function
+ * Why Tail Recursive? 
+ * Because compiler optimizes tail recursive function 
+ */
+int tailRecFactorial(int n, int fact=1) {
+   // Base Case
+   if (n<=1) { return fact; }
+   // else
+   return tailRecFactorial(n-1,n*fact);
+}
+
+/*
  * Iterative function
  * Space Complexity: O(1)
  * Time Complexity: O(n)
@@ -48,4 +60,5 @@ int iterativeFactorial(int n) {
 int main() {
    std::cout << "5! using recursion: " << recursiveFactorial(5) << std::endl;
    std::cout << "5! using iteration: " << iterativeFactorial(5) << std::endl;
+   std::cout << "5! using tail recursion: " << tailRecFactorial(5) << std::endl;
 }
